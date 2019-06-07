@@ -21,6 +21,7 @@ int main()
     try
     {
         system("clear");
+        // Se você utiliza Windows use (Sem aspas): "system("cls");"
         unique_ptr<Process> program (new Process());
         program->process();
     }
@@ -29,6 +30,7 @@ int main()
     catch(bad_alloc& issue)
     {
         system("clear");
+        // Se você utiliza Windows use (Sem aspas): "system("cls");"
         cout << endl;
         cerr << "Erro ao alocar memória para execução! Programa encerrado!" << endl;
         cerr << issue.what() << " exception." << endl;
