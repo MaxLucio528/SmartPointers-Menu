@@ -33,17 +33,21 @@ void Process::process()
         {
             case 0:
                 system("clear");
+                // Se você utiliza Windows use (Sem aspas): "system("cls");"
                 cout << "Saindo do Programa..." << endl;
                 system("sleep 1");
+                // Se você utiliza Windows use (Sem aspas): "system("timeout 1");"
             break;
 
             case 1:
                 system("clear");
+                // Se você utiliza Windows use (Sem aspas): "system("cls");"
                 cout << "Opção 1..." << endl;
             break;
 
             case 2:
                 system("clear");
+                // Se você utiliza Windows use (Sem aspas): "system("cls");"
                 cout << "Opção 2..." << endl;
             break;
 
@@ -55,6 +59,7 @@ void Process::process()
                     break;
                 
                 system("clear");
+                // Se você utiliza Windows use (Sem aspas): "system("cls");"
                 cout << "Opção Inválida!!" << endl;
                 cout << endl;
             break;
