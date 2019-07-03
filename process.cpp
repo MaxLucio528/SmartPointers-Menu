@@ -32,23 +32,21 @@ void Process::process()
         switch(op)
         {
             case 0:
-                system("clear");
-                // Se você utiliza Windows use (Sem aspas): "system("cls");"
+                clearScreen();
                 cout << "Saindo do Programa..." << endl;
-                system("sleep 1");
-                // Se você utiliza Windows use (Sem aspas): "system("timeout 1");"
+                cout << endl;
             break;
 
             case 1:
-                system("clear");
-                // Se você utiliza Windows use (Sem aspas): "system("cls");"
+                clearScreen();
                 cout << "Opção 1..." << endl;
+                cout << endl;
             break;
 
             case 2:
-                system("clear");
-                // Se você utiliza Windows use (Sem aspas): "system("cls");"
+                clearScreen();
                 cout << "Opção 2..." << endl;
+                cout << endl;
             break;
 
             default:
@@ -58,11 +56,24 @@ void Process::process()
                 if(op == -2147483646)
                     break;
                 
-                system("clear");
-                // Se você utiliza Windows use (Sem aspas): "system("cls");"
+                clearScreen();
                 cout << "Opção Inválida!!" << endl;
                 cout << endl;
             break;
         }
     }while(op != 0);
+}
+
+// Método que limpa a tela do terminal
+void Process::clearScreen()
+{
+    #ifndef POWERSHELL
+        system("clear");
+    #else
+        #ifndef WINDOWS
+            system("cls");
+        #else
+            system("clear");
+        #endif
+    #endif
 }

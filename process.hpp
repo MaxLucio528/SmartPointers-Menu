@@ -17,13 +17,14 @@
 
 class Process
 {
-    /* Os elementos públicos consistem do construtor, destrutor e o método de execução 
-    do programa */
+    /* Os elementos públicos consistem do construtor, destrutor, o método de execução 
+    do programa e um método universal que limpa a tela do terminal */
     public:
         Process();
         ~Process();
 
         void process();
+        void clearScreen();
 };
 
 #endif

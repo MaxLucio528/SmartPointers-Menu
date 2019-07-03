@@ -1,4 +1,5 @@
 #include "menu.hpp"
+#include "process.hpp"
 
 // Encurtando função que imprime uma decoração do menu
 #define line cout << "+------------------+" << endl;
@@ -20,6 +21,7 @@ int Menu::getOptions()
 {
     // Utilizando uma string para casos onde o usuário digita algo além de um número
     string buffer;
+    Process clear;
 
     // Exibindo o título do menu
     line;
@@ -57,7 +59,7 @@ int Menu::getOptions()
     // Caso o que o usuário digitou não for um número esse trecho é executado
     catch(exception& issue)
     {
-        system("clear");
+        clear.clearScreen();
         cerr << "Erro! Você precisa digitar um número!!" << endl;
         cerr << issue.what() << " exception." << endl;
         cout << endl;

@@ -20,17 +20,16 @@ int main()
     // Tentando executar o programa normalmente
     try
     {
-        system("clear");
-        // Se você utiliza Windows use (Sem aspas): "system("cls");"
         unique_ptr<Process> program (new Process());
+        program->clearScreen();
         program->process();
     }
 
     // Situação onde houve um erro na alocação de memória para execução do programa
     catch(bad_alloc& issue)
     {
-        system("clear");
-        // Se você utiliza Windows use (Sem aspas): "system("cls");"
+        Process clear;
+        clear.clearScreen();
         cout << endl;
         cerr << "Erro ao alocar memória para execução! Programa encerrado!" << endl;
         cerr << issue.what() << " exception." << endl;
