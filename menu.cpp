@@ -1,5 +1,5 @@
 #include "menu.hpp"
-#include "process.hpp"
+#include "clear.hpp"
 
 // Encurtando função que imprime uma decoração do menu
 #define line cout << "+------------------+" << endl;
@@ -21,8 +21,8 @@ int Menu::getOptions()
 {
     // Utilizando uma string para casos onde o usuário digita algo além de um número
     string buffer;
-    // Variável da classe Process que será utilizada para invocar o método clearScreen
-    Process clear;
+    // Variável da classe Clear que será utilizada para invocar o método clearScreen
+    Clear clear;
 
     // Exibindo o título do menu
     line;

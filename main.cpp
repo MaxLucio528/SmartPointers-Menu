@@ -11,24 +11,30 @@
 #include <string>
 #include <memory>
 
-// Incluindo as classes Menu e Process
-#include "menu.hpp"
+// Incluindo as classes Process e Clear
 #include "process.hpp"
+#include "clear.hpp"
 
 int main()
 {
     // Tentando executar o programa normalmente
     try
     {
+        // Variável da classe Clear que será utilizada para invocar o método clearScreen
+        Clear clear;
+
+        clear.clearScreen();
+
         unique_ptr<Process> program (new Process());
-        program->clearScreen();
         program->process();
     }
 
     // Situação onde houve um erro na alocação de memória para execução do programa
     catch(bad_alloc& issue)
     {
-        Process clear;
+        // Variável da classe Clear que será utilizada para invocar o método clearScreen
+        Clear clear;
+
         clear.clearScreen();
         cout << endl;
         cerr << "Erro ao alocar memória para execução! Programa encerrado!" << endl;

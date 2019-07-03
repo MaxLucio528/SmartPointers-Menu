@@ -1,4 +1,5 @@
 #include "process.hpp"
+#include "clear.hpp"
 
 // Construtor
 Process::Process()
@@ -16,6 +17,9 @@ void Process::process()
     // Inteiro que guarda a opção selecionada pelo usuário
     int op;
 
+    // Variável da classe Clear que será utilizada para invocar o método clearScreen
+    Clear clear;
+
     // Aqui estão sendo definidos o título e as opções do menu por meio de shared pointers
     sharedStr title = makeStr ("MENU PRINCIPAL");
     vector<sharedStr> options = {makeStr ("Sair"), makeStr ("Opcao 1"), makeStr ("Opcao 2")};
@@ -32,19 +36,19 @@ void Process::process()
         switch(op)
         {
             case 0:
-                clearScreen();
+                clear.clearScreen();
                 cout << "Saindo do Programa..." << endl;
                 cout << endl;
             break;
 
             case 1:
-                clearScreen();
+                clear.clearScreen();
                 cout << "Opção 1..." << endl;
                 cout << endl;
             break;
 
             case 2:
-                clearScreen();
+                clear.clearScreen();
                 cout << "Opção 2..." << endl;
                 cout << endl;
             break;
@@ -56,24 +60,10 @@ void Process::process()
                 if(op == -2147483646)
                     break;
                 
-                clearScreen();
+                clear.clearScreen();
                 cout << "Opção Inválida!!" << endl;
                 cout << endl;
             break;
         }
     }while(op != 0);
-}
-
-// Método que limpa a tela do terminal
-void Process::clearScreen()
-{
-    #ifndef POWERSHELL
-        system("clear");
-    #else
-        #ifndef WINDOWS
-            system("cls");
-        #else
-            system("clear");
-        #endif
-    #endif
 }
