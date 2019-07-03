@@ -21,6 +21,7 @@ int Menu::getOptions()
 {
     // Utilizando uma string para casos onde o usuário digita algo além de um número
     string buffer;
+    // Variável da classe Process que será utilizada para invocar o método clearScreen
     Process clear;
 
     // Exibindo o título do menu
