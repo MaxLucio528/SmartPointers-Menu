@@ -1,5 +1,5 @@
 # SmartPointers-Menu
-Menu feito em C++ utilizando Smart Pointers, sendo compatível com qualquer programa em C++.
+Menu feito em C++ utilizando Smart Pointers, sendo compatível com qualquer programa em C++ independente do Sistema Operacional.
 
 Criado por: Max Lucio Martins de Assis
 
