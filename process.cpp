@@ -1,67 +1,68 @@
 #include "process.hpp"
 #include "clear.hpp"
 
-// Construtor
+// Constructor.
 Process::Process()
 {
 }
 
-// Destrutor
+// Destructor.
 Process::~Process()
 { 
 }
 
-// Método que executa o programa
+// This method executes the program.
 void Process::process()
 {
-    // Inteiro que guarda a opção selecionada pelo usuário
+    // Stores the option selected by the user.
     int op;
 
-    // Variável da classe Clear que será utilizada para invocar o método clearScreen
+    // From Clear class, will be used to summon the clearScreen method.
     Clear clear;
 
-    // Aqui estão sendo definidos o título e as opções do menu por meio de shared pointers
-    sharedStr title = makeStr ("MENU PRINCIPAL");
-    vector<sharedStr> options = {makeStr ("Sair"), makeStr ("Opcao 1"), makeStr ("Opcao 2")};
+    // Defining the title and options of the menu via shared pointers.
+    sharedStr title = makeStr ("MAIN MENU");
+    vector<sharedStr> options = {makeStr ("Exit"), makeStr ("Option 1"), makeStr ("Option 2")};
 
-    // Unique pointer que da classe Menu para salvar o título e as opções do menu
+    // Saving the title and options of the menu in a unique pointer.
     unique_ptr<Menu> menu (new Menu(title, options));
 
-    // While que repete a execução do menu até o usuário desejar finalizar o programa
+    // Loops the menu execution till the user wants to exit the program.
     do{
-        // Guardando a opção selecionada e imprimindo o menu por meio de getOptions
+        // Storing the selected option and printing th menu via the getOptions method.
         op = menu->getOptions();
 
-        // Redirecionando para a opção escolhida por meio do switch
+        // Redirecting to the selected option.
         switch(op)
         {
             case 0:
                 clear.clearScreen();
-                cout << "Saindo do Programa..." << endl;
+                cout << "Exiting Program..." << endl;
                 cout << endl;
             break;
 
             case 1:
                 clear.clearScreen();
-                cout << "Opção 1..." << endl;
+                cout << "Option 1..." << endl;
                 cout << endl;
             break;
 
             case 2:
                 clear.clearScreen();
-                cout << "Opção 2..." << endl;
+                cout << "Option 2..." << endl;
                 cout << endl;
             break;
 
             default:
-                /* Caso específico onde o usuário digitou um caracter ou string nas opções, fazendo 
-                com que o programa se comporte de maneira específica para mais informações verifique
-                o arquivo menu.cpp */
+                /*
+                 *  Unique number to represent that the user typed a character or a string
+                 *  instead of a integer, it breaks the switch. 
+                 */
                 if(op == -2147483646)
                     break;
                 
                 clear.clearScreen();
-                cout << "Opção Inválida!!" << endl;
+                cout << "Invalid Option!!" << endl;
                 cout << endl;
             break;
         }

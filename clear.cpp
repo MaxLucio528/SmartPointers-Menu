@@ -1,16 +1,16 @@
 #include "clear.hpp"
 
-// Construtor
+// Constructor.
 Clear::Clear()
 {
 }
 
-// Destrutor
+// Destructor.
 Clear::~Clear()
 { 
 }
 
-// Método que limpa a tela do terminal
+// Method that clears the terminal screen.
 void Clear::clearScreen()
 {
     #ifndef POWERSHELL

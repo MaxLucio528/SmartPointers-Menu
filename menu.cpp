@@ -1,43 +1,43 @@
 #include "menu.hpp"
 #include "clear.hpp"
 
-// Encurtando função que imprime uma decoração do menu
+// Shortening a command that will print a decoration of the menu.
 #define line cout << "+------------------+" << endl;
 
-// Construtor
+// Constructor.
 Menu::Menu(sharedStr title, vector<sharedStr> options)
 {
     this->title = title;
     this->options = options;
 }
 
-// Destrutor
+// Destructor.
 Menu::~Menu()
 {
 }
 
-// Método invocador de menu
+// Menu summoner method.
 int Menu::getOptions()
 {
-    // Utilizando uma string para casos onde o usuário digita algo além de um número
+    // Using a string for cases where the user type anything but a integer.
     string buffer;
-    // Variável da classe Clear que será utilizada para invocar o método clearScreen
+    // From Clear class, will be used to summon the clearScreen method.
     Clear clear;
 
-    // Exibindo o título do menu
+    // Exhibiting the menu title.
     line;
     cout << setw(17);
     cout << *title << endl;
     line;
     cout << endl;
 
-    // Este inteiro guardará o número que lista as opções do vector
+    // Store the numbers that lists the options in the vector.
     int op = 0;
 
-    // Iterator que percorrerá o vector das opções
+    // Will go through the options vector.
     vector<sharedStr>::iterator varre = options.begin();
 
-    // Este laço percorre o vector, imprimindo as opções do menu
+    // Go through the options vector, printing it's options.
     while(varre != options.end())
     {
         cout << op << " - " << **varre << endl;
@@ -45,11 +45,11 @@ int Menu::getOptions()
         op++;
     }
 
-    // Este trecho permite o usuário digitar a opção e tenta retorná-la se for válida
+    // Allows the user to type a option and tries to return it if it's valid.
     cout << endl;
     line;
     cout << "\n";
-    cout << "Escolha uma opção: ";
+    cout << "Choose a option: ";
 
     try
     {
@@ -57,15 +57,15 @@ int Menu::getOptions()
         return stoi(buffer);
     }
 
-    // Caso o que o usuário digitou não for um número esse trecho é executado
+    // If what the user typed wasn't a integer, then this is shown
     catch(exception& issue)
     {
         clear.clearScreen();
-        cerr << "Erro! Você precisa digitar um número!!" << endl;
+        cerr << "Error! You need to type a integer number!!" << endl;
         cerr << issue.what() << " exception." << endl;
         cout << endl;
         
-        // Retornando o menor número possível para comportamento específico do programa
+        // Returning the smallest number possible for a specific program behavior.
         return -2147483646;
     }
 }

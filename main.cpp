@@ -1,43 +1,44 @@
-/* 
-    Smart Pointers Menu:
+/*
+ *  SmartPointers-Menu
+ *  CONTRIBUITORS:
+ *  -> Max Lucio Martins de Assis (GitHub - MaxLucio528)
+ * 
+ *  PURPOSE: Generic menu made in C++ utilizing Smart Pointers, it's compatible with any C++
+ *  program and in it's pure version, can run in any Operational System.
+ */
 
-    FEITO POR: Max Lucio Martins de Assis
-    ALTERADO EM: 3 de Julho de 2019
-    Inspirado no Modelo de Menu do Prof. Dr. André F. de Angelis
-*/
-
-// Bibliotecas necessárias
 #include <iostream>
 #include <string>
 #include <memory>
 
-// Incluindo as classes Process e Clear
+// Will include the classes from other files.
 #include "process.hpp"
 #include "clear.hpp"
 
 int main()
 {
-    // Tentando executar o programa normalmente
+    // Trying to execute the program normally.
     try
     {
-        // Variável da classe Clear que será utilizada para invocar o método clearScreen
+        // From Clear class, will be used to summon the clearScreen method.
         Clear clear;
 
         clear.clearScreen();
 
+        // Unique Pointer used to create a new process to run the program.
         unique_ptr<Process> program (new Process());
         program->process();
     }
 
-    // Situação onde houve um erro na alocação de memória para execução do programa
+    // Allocation error when trying to create the pointer to run the program processes.
     catch(bad_alloc& issue)
     {
-        // Variável da classe Clear que será utilizada para invocar o método clearScreen
+        // From Clear class, will be used to summon the clearScreen method.
         Clear clear;
 
         clear.clearScreen();
         cout << endl;
-        cerr << "Erro ao alocar memória para execução! Programa encerrado!" << endl;
+        cerr << "Error when trying to allocate memory to execution! Program terminated!" << endl;
         cerr << issue.what() << " exception." << endl;
         cout << endl;
     }

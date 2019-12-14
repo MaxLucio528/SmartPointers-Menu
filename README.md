@@ -1,11 +1,45 @@
 # SmartPointers-Menu
-Menu feito em C++ utilizando Smart Pointers, sendo compatível com qualquer programa em C++ independente do Sistema Operacional.
 
-Criado por: Max Lucio Martins de Assis
+Made by: Max Lucio Martins de Assis.
 
-Inspirado no Modelo de Menu criado pelo Prof. Dr. André F. de Angelis
+Generic menu made in C++ utilizing Smart Pointers, it's compatible with any C++ program and in it's pure version, can run in any Operational System.
 
-# Compilação no Terminal Linux, macOS e PowerShell Windows / Prompt de Comando
+Inspired by the Menu Model created by Dr. André F. de Angelis.
 
-- Para compilar utilize (Sem aspas): "g++ -std=c++11 *.cpp -o spmenu" <br />
-- Para executar utilize: ./spmenu (Linux, macOS e PowerShell) || spmenu (Prompt)
+## Things to Know
+
+You can include this menu in your program without any problems, since the Menu class is "dumb" and doesn't even know what options it has, this is defined by you when you edit the code in the process() method and that's why this works with any program and can be considered a Universal Menu for C++ on terminals.
+
+## Compilation and Execution
+
+1 - To compile, type the following command on your terminal:
+
+~~~
+g++ -std=c++11 *.cpp -o spmenu
+~~~
+
+2.1 - If your terminal isn't a Command Prompt, type the following to execute:
+
+~~~
+./spmenu
+~~~
+
+2.2 - If your terminal is a Command Prompt, type the following to execute:
+
+~~~
+spmenu
+~~~
+
+**Alternatively you can import this program on your IDE to execute it.**
+
+Current Version: 1.1
+
+## Changelog
+
+**Version 1.1 (14/12/2019) [FORMAT (DD/MM/YY)]**
+
+-> The program is in english as well as the comments.
+
+**Version 1.0 (03/06/2019) [FORMAT (DD/MM/YY)]**
+
+-> Initial version of the program, all the program functions were implemented, but the program is in brazilian portuguese as well as the comments.
